@@ -808,7 +808,6 @@ GameObject:
   - component: {fileID: 935490222}
   - component: {fileID: 935490221}
   - component: {fileID: 935490220}
-  - component: {fileID: 935490219}
   - component: {fileID: 935490218}
   m_Layer: 0
   m_Name: Enemy (1)
@@ -830,19 +829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
---- !u!114 &935490219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935490217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f08ab009f0f8954c92b7042d6148a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!50 &935490220
 Rigidbody2D:
   serializedVersion: 4
@@ -1538,7 +1524,6 @@ GameObject:
   - component: {fileID: 1934008443}
   - component: {fileID: 1934008442}
   - component: {fileID: 1934008441}
-  - component: {fileID: 1934008445}
   - component: {fileID: 1934008446}
   m_Layer: 0
   m_Name: Enemy
@@ -1661,19 +1646,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1934008445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934008439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f08ab009f0f8954c92b7042d6148a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!114 &1934008446
 MonoBehaviour:
   m_ObjectHideFlags: 0
