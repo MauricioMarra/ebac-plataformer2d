@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,8 +14,15 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public float jumpSpeed;
 
+    [Header("Animations")]
+    public Animator playerAnimator;
+    public string animatorKeyForRunning = "isRunning";
+
     private float _currentSpeed;
     private float _runningSpeedFactor = 3;
+    private float _scaleDuration = 0.5f;
+    private bool isJumping = false;
+
 
     private void Start()
     {
@@ -33,9 +41,15 @@ public class Player : MonoBehaviour
     {
         //Player is running
         if (Input.GetKey(KeyCode.LeftShift))
+        {
             _currentSpeed = speed * _runningSpeedFactor;
+            playerAnimator.speed = 1.5f;
+        }
         else
+        {
             _currentSpeed = speed;
+            playerAnimator.speed = 1.0f;
+        }
 
         //Friction
         if (myRigidBody.velocity.x > 0.0f)
@@ -48,19 +62,28 @@ public class Player : MonoBehaviour
         {
             //myRigidBody.velocity = myRigidBody.velocity + Vector2.left * Time.deltaTime * speed;
             myRigidBody.velocity = new Vector2(-_currentSpeed, myRigidBody.velocity.y);
+            this.playerAnimator.SetBool(animatorKeyForRunning, true);
+            this.transform.DOScaleX(-1, _scaleDuration);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             //myRigidBody.velocity = myRigidBody.velocity + Vector2.right * Time.deltaTime * speed;
             myRigidBody.velocity = new Vector2(_currentSpeed, myRigidBody.velocity.y);
+            this.playerAnimator.SetBool(animatorKeyForRunning, true);
+            this.transform.DOScaleX(1, _scaleDuration);
         }
+        else
+        {
+            this.playerAnimator.SetBool(animatorKeyForRunning, false);
+        }
+
     }
 
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //myRigidBody.velocity += Vector2.up * Time.deltaTime * jumpForce;
+            isJumping = true;
             myRigidBody.velocity = Vector2.up * jumpForce;
         }
     }
