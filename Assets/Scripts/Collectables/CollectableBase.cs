@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollectableBase : MonoBehaviour
 {
     private string playerTag = "Player";
+    private float _destroyDelay = 5.0f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,7 @@ public class CollectableBase : MonoBehaviour
 
     protected void Collect()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, _destroyDelay);
     }
 
     protected virtual void OnCollect()
