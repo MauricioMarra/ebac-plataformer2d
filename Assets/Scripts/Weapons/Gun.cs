@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        var p = Instantiate(projectile, projectileSpawnPoint);
+        var p = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
         p.direction = player.transform.localScale.x;
     }
 }
