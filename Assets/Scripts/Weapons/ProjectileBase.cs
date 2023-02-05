@@ -22,6 +22,10 @@ public class ProjectileBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var health = collision.gameObject.GetComponent<HealthBase>();
+        if (health != null)
+            health.Damage();
+
         Destroy (gameObject);
     }
 }

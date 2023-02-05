@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
 {
     public int initialHealth;
+    public Action OnKill;
 
     private int _currentHealth;
 
@@ -11,7 +13,7 @@ public class HealthBase : MonoBehaviour
         _currentHealth = initialHealth;
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage = 1)
     {
         this._currentHealth -= damage;
 
@@ -29,6 +31,9 @@ public class HealthBase : MonoBehaviour
             _currentHealth = initialHealth;
         }
         else
-            Destroy(gameObject);
+        {
+            //Destroy(gameObject);
+            OnKill.Invoke();
+        }
     }
 }
