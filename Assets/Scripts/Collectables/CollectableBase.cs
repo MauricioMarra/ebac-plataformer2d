@@ -14,6 +14,11 @@ public class CollectableBase : MonoBehaviour
 
     protected void Collect()
     {
+        var collider = this.GetComponent<Collider2D>();
+
+        if (collider != null) 
+            collider.enabled = false;
+
         Destroy(gameObject, _destroyDelay);
     }
 

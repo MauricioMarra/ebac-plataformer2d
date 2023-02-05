@@ -19,4 +19,9 @@ public class ProjectileBase : MonoBehaviour
         Debug.Log(direction);
         this.transform.Translate(direction * bulletSpeed * Time.deltaTime, 0, 0);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy (gameObject);
+    }
 }
