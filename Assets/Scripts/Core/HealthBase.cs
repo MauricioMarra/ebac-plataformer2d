@@ -7,10 +7,13 @@ public class HealthBase : MonoBehaviour
     public Action OnKill;
 
     private int _currentHealth;
+    private Flash _flashComponent;
 
     private void Awake()
     {
         _currentHealth = initialHealth;
+
+        _flashComponent= GetComponent<Flash>();
     }
 
     public void Damage(int damage = 1)
@@ -19,6 +22,9 @@ public class HealthBase : MonoBehaviour
 
         if (_currentHealth <= 0)
             Kill();
+
+        if (_flashComponent != null)
+            _flashComponent.OnFlashComponent();
     }
 
     private void Kill()
