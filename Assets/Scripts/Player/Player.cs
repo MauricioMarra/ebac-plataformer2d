@@ -65,14 +65,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //myRigidBody.velocity = myRigidBody.velocity + Vector2.left * Time.deltaTime * speed;
             myRigidBody.velocity = new Vector2(-_currentSpeed, myRigidBody.velocity.y);
             this.playerAnimator.SetBool(animatorKeyForRunning, !isJumping && !isInAir);
             this.transform.DOScaleX(-1, _scaleDuration);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            //myRigidBody.velocity = myRigidBody.velocity + Vector2.right * Time.deltaTime * speed;
             myRigidBody.velocity = new Vector2(_currentSpeed, myRigidBody.velocity.y);
             this.playerAnimator.SetBool(animatorKeyForRunning, !isJumping && !isInAir);
             this.transform.DOScaleX(1, _scaleDuration);
