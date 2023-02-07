@@ -38,12 +38,20 @@ public class Flash : MonoBehaviour
 
         yield return new WaitForSeconds(_flashTime);
 
+        _currentTween.onComplete += FlashBackToNormal;
         _coroutineFlash = null;
     }
 
     public void OnFlashComponent()
     {
         if (_coroutineFlash == null)
-            StartCoroutine(FlashComponentCoroutine());
+        {
+            _coroutineFlash = StartCoroutine(FlashComponentCoroutine());
+        }
+    }
+
+    private void FlashBackToNormal()
+    {
+        spriteRendererList.ForEach(sr => sr.color = Color.white);
     }
 }

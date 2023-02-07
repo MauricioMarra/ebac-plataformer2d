@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public float speed;
     public float frictionSpeed;
+    public float runningSpeedFactor = 1;
 
     [Header("Jump")]
     public float jumpForce;
@@ -22,7 +23,6 @@ public class Player : MonoBehaviour
     public string _animatorTriggerForTouchedGround = "touchedGround";
 
     private float _currentSpeed;
-    private float _runningSpeedFactor = 3;
     private float _scaleDuration = 0.5f;
     private bool isJumping = false;
     private string floorTag = "Floor";
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         //Player is running
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            _currentSpeed = speed * _runningSpeedFactor;
+            _currentSpeed = speed * runningSpeedFactor;
             playerAnimator.speed = 1.5f;
         }
         else

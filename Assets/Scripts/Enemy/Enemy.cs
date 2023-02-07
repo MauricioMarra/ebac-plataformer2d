@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
         if (healthComponent != null)
         {
             healthComponent.Damage(this.damage);
-            Debug.Log($"{this.damage} point of damage to {collision.gameObject}");
         }
     }
 

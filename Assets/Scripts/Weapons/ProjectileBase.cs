@@ -16,7 +16,6 @@ public class ProjectileBase : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(direction);
         this.transform.Translate(direction * bulletSpeed * Time.deltaTime, 0, 0);
     }
 
