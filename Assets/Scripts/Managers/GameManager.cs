@@ -13,8 +13,9 @@ public class GameManager : Singleton<GameManager>
 
         _statesDictionary.Add(States.Running, new StateRunning());
         _statesDictionary.Add(States.Paused, new StatePaused());
+        _statesDictionary.Add(States.Death, new StateDeath());
 
-        SwitchState(States.Paused);
+        SwitchState(States.Running);
     }
 
     public void SwitchState(States state)
@@ -35,5 +36,6 @@ public class GameManager : Singleton<GameManager>
 public enum States
 {
     Running,
-    Paused
+    Paused,
+    Death
 }

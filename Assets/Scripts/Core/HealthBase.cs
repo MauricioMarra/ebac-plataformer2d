@@ -33,8 +33,9 @@ public class HealthBase : MonoBehaviour
 
         if (player != null)
         {
-            player.Respawn();
-            _currentHealth = initialHealth;
+            //player.Respawn();
+            //_currentHealth = initialHealth;
+            OnKill.Invoke();
         }
         else
         {

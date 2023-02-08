@@ -152,6 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 975676220}
+  - {fileID: 1361979485}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1153,6 +1154,7 @@ MonoBehaviour:
   animatorKeyForRunning: isRunning
   animatorKeyForJumpingVelocity: jumpingVelocity
   _animatorTriggerForTouchedGround: touchedGround
+  animatorKeyForDeath: death
 --- !u!114 &635347847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,6 +1458,10 @@ PrefabInstance:
     - target: {fileID: 3176744783887258002, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
       propertyPath: m_Name
       value: PFB_Enemy_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068694980100790417, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
@@ -1807,6 +1813,51 @@ Transform:
   m_Father: {fileID: 911402935}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1361979484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361979485}
+  - component: {fileID: 1361979486}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361979485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361979484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5426770}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361979486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361979484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa9466dce14dc44f98404f1d65666b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuManager: {fileID: 0}
 --- !u!1 &1373744737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2610,7 @@ GameObject:
   - component: {fileID: 1934008446}
   - component: {fileID: 1934008447}
   - component: {fileID: 1934008448}
+  - component: {fileID: 1934008449}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2594,9 +2646,9 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934008439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bff142022a9f65a4088b088c8786e172, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2644,6 +2696,7 @@ MonoBehaviour:
   damage: 5
   health: {fileID: 1934008447}
   animator: {fileID: 1897742086}
+  pushBackForce: 1000
 --- !u!114 &1934008447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,6 +2730,22 @@ MonoBehaviour:
   - {fileID: 1915529347}
   - {fileID: 675310787}
   - {fileID: 2120789322}
+--- !u!70 &1934008449
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934008439}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: bff142022a9f65a4088b088c8786e172, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1, y: 0.47}
+  m_Size: {x: 3.17, y: 6.06}
+  m_Direction: 0
 --- !u!1 &1990341234
 GameObject:
   m_ObjectHideFlags: 0

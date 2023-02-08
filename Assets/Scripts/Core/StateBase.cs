@@ -52,3 +52,20 @@ public class StatePaused : StateBase
         base.OnStateExit();
     }
 }
+
+public class StateDeath: StateBase
+{
+    public override void OnStateEnter()
+    {
+        message = $"Entering {this.GetType()}";
+
+        base.OnStateEnter();
+    }
+
+    public override void OnStateExit()
+    {
+        message = $"Leaving {this.GetType()}";
+
+        base.OnStateExit();
+    }
+}

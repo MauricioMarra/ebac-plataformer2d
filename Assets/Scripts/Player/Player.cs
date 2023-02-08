@@ -21,13 +21,22 @@ public class Player : MonoBehaviour
     public string animatorKeyForRunning = "isRunning";
     public string animatorKeyForJumpingVelocity = "jumpingVelocity";
     public string _animatorTriggerForTouchedGround = "touchedGround";
+    public string animatorKeyForDeath = "death";
 
     private float _currentSpeed;
     private float _scaleDuration = 0.5f;
     private bool isJumping = false;
     private string floorTag = "Floor";
+    private HealthBase _health;
 
     private bool myVar = true;
+
+    private void Awake()
+    {
+        _health = GetComponent<HealthBase>();
+        if (_health != null)
+            _health.OnKill += playerKill;
+    }
 
     private void Start()
     {
@@ -37,9 +46,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jump();
-
-        Move();
+        var state = GameManager.instance.GetCurrentState();
+        if (!(GameManager.instance.GetCurrentState() is StateDeath))
+        {
+            Jump();
+            Move();
+        }
     }
 
     private void Move()
@@ -128,5 +140,11 @@ public class Player : MonoBehaviour
             isJumping = false;
             playerAnimator.SetFloat(animatorKeyForJumpingVelocity, 0.0f);
         }
+    }
+
+    void playerKill()
+    {
+         playerAnimator.SetBool(animatorKeyForDeath, true);
+        GameManager.instance.SwitchState(States.Death);
     }
 }

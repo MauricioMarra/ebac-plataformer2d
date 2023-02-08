@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
     public int damage;
     public HealthBase health;
     public Animator animator;
+    public float pushBackForce;
 
     private string _animatorTriggerForDeath = "Death";
 
@@ -18,9 +19,7 @@ public class Enemy : MonoBehaviour
         var healthComponent = collision.gameObject.GetComponent<HealthBase>();
 
         if (healthComponent != null)
-        {
             healthComponent.Damage(this.damage);
-        }
     }
 
     void OnEnemyKill()
