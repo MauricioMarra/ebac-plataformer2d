@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 635347846}
   - component: {fileID: 635347847}
   - component: {fileID: 635347848}
+  - component: {fileID: 635347849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1201,6 +1202,17 @@ MonoBehaviour:
   - {fileID: 1489275687}
   - {fileID: 227667256}
   - {fileID: 145910565}
+--- !u!210 &635347849
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635347841}
+  m_Enabled: 1
+  m_SortingLayerID: 1529992987
+  m_SortingLayer: 1
+  m_SortingOrder: 15
 --- !u!212 &675123005 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7803505671189439292, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
