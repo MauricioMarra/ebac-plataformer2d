@@ -146,5 +146,7 @@ public class Player : MonoBehaviour
     {
          playerAnimator.SetBool(animatorKeyForDeath, true);
         GameManager.instance.SwitchState(States.Death);
+
+        myRigidBody.simulated = false;
     }
 }
