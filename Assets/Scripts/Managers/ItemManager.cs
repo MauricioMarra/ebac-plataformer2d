@@ -1,22 +1,22 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public int coins;
-    public TextMeshProUGUI coinCountText;
+    public SOCollectables coins;
+    public Action OnChangeValues;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        this.coins = 0;
-        coinCountText.text = coins.ToString();
+        coins.value = 0;
+        this.OnChangeValues.Invoke();
     }
 
     public void AddCoin(int amount = 1)
     {
-        coins += amount;
-        coinCountText.text = coins.ToString();
+        coins.value += amount;
+
+        OnChangeValues.Invoke();
     }
 }

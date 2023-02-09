@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectableCoin : CollectableBase
 {
+    public int collectAmount;
     private Animator _animator;
     private string _coinTrigger = "collect";
 
@@ -16,7 +17,7 @@ public class CollectableCoin : CollectableBase
     {
         base.OnCollect();
 
-        ItemManager.instance.AddCoin();
+        ItemManager.instance.AddCoin(collectAmount);
 
         _animator.SetTrigger(_coinTrigger);
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6251691699591140828}
   - component: {fileID: 4549391245305346295}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: PFB_Coin10x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6801e75518ed04f4f92931a89d6ba986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectAmount: 10
 --- !u!58 &6251691699591140828
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: de085835d504f71449418b1ac8036134, type: 3}
-  m_Color: {r: 0.990566, g: 0.80280715, b: 0.22895159, a: 1}
+  m_Color: {r: 0.22745097, g: 0.99215686, b: 0.43506104, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

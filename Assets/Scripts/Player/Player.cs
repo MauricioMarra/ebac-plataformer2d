@@ -7,13 +7,13 @@ public class Player : MonoBehaviour
     public Transform restartPoint;
 
     [Header("Movement")]
-    public float speed;
-    public float frictionSpeed;
-    public float runningSpeedFactor = 1;
+    //public float speed;
+    //public float frictionSpeed;
+    //public float runningSpeedFactor = 1;
 
     [Header("Jump")]
-    public float jumpForce;
-    public float jumpSpeed;
+    //public float jumpForce;
+    //public float jumpSpeed;
     private bool isInAir = false;
 
     [Header("Animations")]
@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public string animatorKeyForJumpingVelocity = "jumpingVelocity";
     public string _animatorTriggerForTouchedGround = "touchedGround";
     public string animatorKeyForDeath = "death";
+
+    public SOPlayerConfig soPlayerConfig;
 
     private float _currentSpeed;
     private float _scaleDuration = 0.5f;
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _currentSpeed = speed;
+        _currentSpeed = soPlayerConfig.speed;
     }
 
     // Update is called once per frame
@@ -59,20 +61,20 @@ public class Player : MonoBehaviour
         //Player is running
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            _currentSpeed = speed * runningSpeedFactor;
+            _currentSpeed = soPlayerConfig.speed * soPlayerConfig.runningSpeedFactor;
             playerAnimator.speed = 1.5f;
         }
         else
         {
-            _currentSpeed = speed;
+            _currentSpeed = soPlayerConfig.speed;
             playerAnimator.speed = 1.0f;
         }
 
         //Friction
         if (myRigidBody.velocity.x > 0.0f)
-            myRigidBody.velocity = new Vector2(Mathf.MoveTowards(myRigidBody.velocity.x, 0, frictionSpeed), myRigidBody.velocity.y);
+            myRigidBody.velocity = new Vector2(Mathf.MoveTowards(myRigidBody.velocity.x, 0, soPlayerConfig.frictionSpeed), myRigidBody.velocity.y);
         else if (myRigidBody.velocity.x < 0.0f)
-            myRigidBody.velocity = new Vector2(Mathf.MoveTowards(myRigidBody.velocity.x, 0, frictionSpeed), myRigidBody.velocity.y);
+            myRigidBody.velocity = new Vector2(Mathf.MoveTowards(myRigidBody.velocity.x, 0, soPlayerConfig.frictionSpeed), myRigidBody.velocity.y);
 
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -99,7 +101,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumping = true;
-            myRigidBody.velocity = Vector2.up * jumpForce;
+            myRigidBody.velocity = Vector2.up * soPlayerConfig.jumpForce;
         }
 
         if (isJumping || isInAir)
@@ -144,8 +146,9 @@ public class Player : MonoBehaviour
 
     void playerKill()
     {
-         playerAnimator.SetBool(animatorKeyForDeath, true);
         GameManager.instance.SwitchState(States.Death);
+        playerAnimator.speed = 1.0f;
+        playerAnimator.SetBool(animatorKeyForDeath, true);
 
         myRigidBody.simulated = false;
     }
