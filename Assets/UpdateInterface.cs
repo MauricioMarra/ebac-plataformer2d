@@ -9,7 +9,7 @@ public class UpdateInterface : MonoBehaviour
     public TextMeshProUGUI collectableText;
     public SOCollectables soCollectable;
 
-    private void Start()
+    private void Awake()
     {
         ItemManager.instance.OnChangeValues += OnUpdateInterface;
     }
