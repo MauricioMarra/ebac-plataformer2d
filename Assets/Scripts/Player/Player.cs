@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
         {
             isJumping = true;
             myRigidBody.velocity = Vector2.up * soPlayerConfig.jumpForce;
+            VFXManager.instance.PlayVfx(VfxType.Jump, this.transform.position);
         }
 
         if (isJumping || isInAir)
