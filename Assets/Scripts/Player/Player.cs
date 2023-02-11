@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     //public float speed;
     //public float frictionSpeed;
     //public float runningSpeedFactor = 1;
+    public ParticleSystem runVfx = null;
 
     [Header("Jump")]
     //public float jumpForce;
@@ -33,6 +34,8 @@ public class Player : MonoBehaviour
 
     private bool myVar = true;
 
+    public float hSliderValue { get; private set; }
+
     private void Awake()
     {
         _health = GetComponent<HealthBase>();
@@ -51,6 +54,7 @@ public class Player : MonoBehaviour
         var state = GameManager.instance.GetCurrentState();
         if (!(GameManager.instance.GetCurrentState() is StateDeath))
         {
+            RunVfx();
             Jump();
             Move();
         }
@@ -152,5 +156,27 @@ public class Player : MonoBehaviour
         playerAnimator.SetBool(animatorKeyForDeath, true);
 
         myRigidBody.simulated = false;
+    }
+
+    public void RunVfx() 
+    {
+        //if (isJumping)
+        //    runVfx?.Stop();
+        //else
+        //    runVfx?.Play();
+
+        if (isInAir)
+        {
+            if (runVfx != null)
+            {
+                var ps = runVfx.main;
+                ps.simulationSpeed = 0f;
+            }
+        }
+        else
+        {
+            var ps = runVfx.main;
+            ps.simulationSpeed = 1f;
+        }
     }
 }

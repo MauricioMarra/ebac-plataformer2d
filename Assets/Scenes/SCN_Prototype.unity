@@ -1150,6 +1150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 635347842}
   restartPoint: {fileID: 1411229707}
+  runVfx: {fileID: 1431045496}
   playerAnimator: {fileID: 1240815189}
   animatorKeyForRunning: isRunning
   animatorKeyForJumpingVelocity: jumpingVelocity
@@ -2102,6 +2103,11 @@ SpriteRenderer:
 --- !u!4 &1431045494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1939925233510469123, guid: ab348e3819e9489429041eb9a123bb39, type: 3}
+  m_PrefabInstance: {fileID: 1939925232793504629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1431045496 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1939925233510469120, guid: ab348e3819e9489429041eb9a123bb39, type: 3}
   m_PrefabInstance: {fileID: 1939925232793504629}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1457522006
