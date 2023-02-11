@@ -20,6 +20,8 @@ public class CollectableBase : MonoBehaviour
         if (collider != null) 
             collider.enabled = false;
 
+        VFXManager.instance.PlayVfx(VfxType.Collect, this.transform.position);
+
         Destroy(gameObject, _destroyDelay);
     }
 

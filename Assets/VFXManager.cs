@@ -25,7 +25,8 @@ public class VFXManager : Singleton<VFXManager>
 
 public enum VfxType
 {
-    Jump
+    Jump,
+    Collect
 }
 
 [System.Serializable]
