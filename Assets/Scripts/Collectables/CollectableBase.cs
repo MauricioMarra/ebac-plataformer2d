@@ -1,10 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectableBase : MonoBehaviour
 {
+    [Header("Sounds")]
+    public AudioSource audioSource;
+
     private string playerTag = "Player";
     private float _destroyDelay = 5.0f;
 
@@ -21,6 +21,9 @@ public class CollectableBase : MonoBehaviour
             collider.enabled = false;
 
         VFXManager.instance.PlayVfx(VfxType.Collect, this.transform.position);
+
+        if (audioSource != null)
+            audioSource.Play();
 
         Destroy(gameObject, _destroyDelay);
     }

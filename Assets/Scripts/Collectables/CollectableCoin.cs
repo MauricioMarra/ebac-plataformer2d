@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CollectableCoin : CollectableBase
 {
+    [Header("Collect Config")]
     public int collectAmount;
+
     private Animator _animator;
     private string _coinTrigger = "collect";
 
