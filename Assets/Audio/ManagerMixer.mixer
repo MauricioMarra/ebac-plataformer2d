@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!245 &-7493429440268917739
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Menu
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: ca9b945e422668b46aed503dcd81da02
+  m_FloatValues:
+    a4f898c758a480048b37892a6b870727: -29.519157
+  m_TransitionOverrides: {}
 --- !u!244 &-3782211063520001105
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -33,6 +45,17 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!245 &-24971218454967345
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Playing
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: c2e5a5238c7e3f84db60269cc048b09b
+  m_FloatValues: {}
+  m_TransitionOverrides: {}
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -44,11 +67,17 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -7493429440268917739}
+  - {fileID: -24971218454967345}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: ca1b5a192b798bf47a433030a2f3edb4
+    name: VolumeEnvironment
+  - guid: 8b477221732d47140a6895b80a4e6c2b
+    name: VolumeGameplay
   m_AudioMixerGroupViews:
   - guids:
     - 01c1c308b5f459745a486ec777925de2
@@ -109,7 +138,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Menu
+  m_Name: Environment
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 9b701c3195a59604f9fb5d14787ee724
   m_Children: []

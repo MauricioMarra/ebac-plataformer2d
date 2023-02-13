@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
+    public GameObject pauseMenu;
 
     public bool _isMainMenuVisible = false;
     public float _currentTimeScale = 1.0f;
@@ -11,6 +12,12 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         PauseGame(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            PauseGame(true);
     }
 
     public void LoadScene(string scene)
@@ -43,29 +50,29 @@ public class MenuManager : MonoBehaviour
 
     public void ShowMainMenu(bool show)
     {
-        mainMenu.SetActive(show);
-        _isMainMenuVisible = show;
+        if (mainMenu != null) 
+        { 
+            mainMenu.SetActive(show); 
+            _isMainMenuVisible = show;
+        }
+
     }
 
     public void PauseGame(bool isPaused)
     {
         if (isPaused)
         {
-            //this._currentTimeScale = 0.0f;
-
+            pauseMenu.SetActive(isPaused);
             ShowMainMenu(true);
 
             GameManager.instance.SwitchState(States.Paused);
         }
         else
         {
-            //this._currentTimeScale = 1.0f;
-
+            pauseMenu.SetActive(isPaused);
             ShowMainMenu(false);
 
             GameManager.instance.SwitchState(States.Running);
         }
-
-        //Time.timeScale = _currentTimeScale;
     }
 }
