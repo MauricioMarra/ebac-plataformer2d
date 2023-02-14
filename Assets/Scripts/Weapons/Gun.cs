@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -8,6 +9,7 @@ public class Gun : MonoBehaviour
     public Transform projectileSpawnPoint;
     public float shootDelay;
     public GameObject player;
+    public AudioHelper audioHelper;
 
     private Coroutine _shootCoroutine;
 
@@ -38,5 +40,8 @@ public class Gun : MonoBehaviour
     {
         var p = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
         p.direction = player.transform.localScale.x;
+
+        if (audioHelper.audioClip != null && audioHelper.audioSource != null)
+            AudioManager.instance.PlaySingle(audioHelper.audioClip, audioHelper.audioSource);
     }
 }

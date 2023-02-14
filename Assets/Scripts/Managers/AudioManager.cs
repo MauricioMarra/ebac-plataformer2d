@@ -14,4 +14,10 @@ public class AudioManager : Singleton<AudioManager>
 
         _indexPlayRandom++;
     }
+
+    public void PlaySingle(AudioClip audioClip, AudioSource audioSource)
+    {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
 }
