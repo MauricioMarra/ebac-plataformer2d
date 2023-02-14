@@ -60,19 +60,22 @@ public class MenuManager : MonoBehaviour
 
     public void PauseGame(bool isPaused)
     {
-        if (isPaused)
+        if (pauseMenu != null)
         {
-            pauseMenu.SetActive(isPaused);
-            ShowMainMenu(true);
+            if (isPaused)
+            {
+                pauseMenu.SetActive(isPaused);
+                ShowMainMenu(true);
 
-            GameManager.instance.SwitchState(States.Paused);
-        }
-        else
-        {
-            pauseMenu.SetActive(isPaused);
-            ShowMainMenu(false);
+                GameManager.instance.SwitchState(States.Paused);
+            }
+            else
+            {
+                pauseMenu.SetActive(isPaused);
+                ShowMainMenu(false);
 
-            GameManager.instance.SwitchState(States.Running);
+                GameManager.instance.SwitchState(States.Running);
+            }
         }
     }
 }
