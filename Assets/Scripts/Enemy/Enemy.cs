@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
         var collider = this.GetComponentInChildren<Collider2D>();
 
+        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+
         if (collider != null)
             collider.enabled = false;
 
