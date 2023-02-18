@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     {
         health.OnKill -= OnEnemyKill;
 
+        GameManager.instance.UpdateEnemyCount();
+
         var collider = this.GetComponentInChildren<Collider2D>();
 
         this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;

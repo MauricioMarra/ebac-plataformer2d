@@ -1,4 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Events;
+using static UnityEditor.Progress;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -6,6 +11,17 @@ public class GameManager : Singleton<GameManager>
     private Dictionary<States, StateBase> _statesDictionary = new Dictionary<States, StateBase>();
 
     public MenuManager menuManager;
+    public GameObject EnemyGroup;
+    public SOCollectables enemyCount;
+
+    private int _enemyCount = 0;
+
+    public UnityEvent unityEventOnEnemyCountChange;
+
+    private void Update()
+    {
+
+    }
 
     override public void Awake()
     {
@@ -16,6 +32,17 @@ public class GameManager : Singleton<GameManager>
         _statesDictionary.Add(States.Death, new StateDeath());
 
         SwitchState(States.Running);
+
+        if (unityEventOnEnemyCountChange == null)
+            unityEventOnEnemyCountChange = new();
+    }
+
+    private void Start()
+    {
+        _enemyCount = EnemyGroup.GetComponentsInChildren<HealthBase>().Count();
+        enemyCount.value = _enemyCount;
+
+        unityEventOnEnemyCountChange.Invoke();
     }
 
     public void SwitchState(States state)
@@ -30,6 +57,14 @@ public class GameManager : Singleton<GameManager>
     public StateBase GetCurrentState()
     {
         return _currentState;
+    }
+
+    public void UpdateEnemyCount()
+    {
+        this._enemyCount--;
+        enemyCount.value = _enemyCount;
+
+        unityEventOnEnemyCountChange.Invoke();
     }
 }
 
