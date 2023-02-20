@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Progress;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     private int _enemyCount = 0;
 
     public UnityEvent unityEventOnEnemyCountChange;
+    public bool FullScreen = true;
 
     private void Update()
     {
@@ -39,6 +40,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        Screen.SetResolution(1902, 1080, FullScreen);
+
         _enemyCount = EnemyGroup.GetComponentsInChildren<HealthBase>().Count();
         enemyCount.value = _enemyCount;
 
