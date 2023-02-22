@@ -2866,6 +2866,7 @@ MonoBehaviour:
   _animatorTriggerForTouchedGround: touchedGround
   animatorKeyForDeath: death
   soPlayerConfig: {fileID: 11400000, guid: 25d3fe203e45a9e43b0b62d31c645dbd, type: 2}
+  audioHelper: {fileID: 635347853}
 --- !u!114 &635347847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,6 +2941,7 @@ MonoBehaviour:
   shootDelay: 0.4
   player: {fileID: 635347841}
   audioHelper: {fileID: 635347853}
+  audioClip: {fileID: 8300000, guid: ceede7a829d41470a86526620500b878, type: 3}
 --- !u!82 &635347852
 AudioSource:
   m_ObjectHideFlags: 0

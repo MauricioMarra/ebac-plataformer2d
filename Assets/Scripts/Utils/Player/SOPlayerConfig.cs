@@ -11,4 +11,5 @@ public class SOPlayerConfig : ScriptableObject
     [Header("Jump")]
     public float jumpForce;
     public float jumpSpeed;
+    public AudioClip jumpClip;
 }

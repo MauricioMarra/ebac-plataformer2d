@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     public float shootDelay;
     public GameObject player;
     public AudioHelper audioHelper;
+    public AudioClip audioClip;
 
     private Coroutine _shootCoroutine;
 
@@ -40,6 +41,8 @@ public class Gun : MonoBehaviour
     {
         var p = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity);
         p.direction = player.transform.localScale.x;
+
+        audioHelper.audioClip = this.audioClip;
 
         if (audioHelper.audioClip != null && audioHelper.audioSource != null)
             AudioManager.instance.PlaySingle(audioHelper.audioClip, audioHelper.audioSource);

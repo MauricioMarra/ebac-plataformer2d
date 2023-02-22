@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
 
     public SOPlayerConfig soPlayerConfig;
 
+    [Header("Audio Config")]
+    public AudioHelper audioHelper;
+
     private float _currentSpeed;
     private float _scaleDuration = 0.5f;
     private bool isJumping = false;
@@ -104,6 +107,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (audioHelper != null)
+            {
+                audioHelper.audioClip = soPlayerConfig.jumpClip;
+                audioHelper.PlaySingle();
+            }
+
             isJumping = true;
             myRigidBody.velocity = Vector2.up * soPlayerConfig.jumpForce;
             VFXManager.instance.PlayVfx(VfxType.Jump, this.transform.position);

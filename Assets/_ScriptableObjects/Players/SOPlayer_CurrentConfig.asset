@@ -17,3 +17,4 @@ MonoBehaviour:
   runningSpeedFactor: 2
   jumpForce: 8.5
   jumpSpeed: 0.2
+  jumpClip: {fileID: 8300000, guid: ccb4c595f3ec2384f891bbc0cc5dd430, type: 3}
