@@ -55,7 +55,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         var state = GameManager.instance.GetCurrentState();
-        if (!(GameManager.instance.GetCurrentState() is StateDeath))
+
+        //if (!(GameManager.instance.GetCurrentState() is StateDeath))
+        if(state is not StateDeath && state is not StateEndGame)
         {
             RunVfx();
             Jump();

@@ -31,6 +31,7 @@ public class GameManager : Singleton<GameManager>
         _statesDictionary.Add(States.Running, new StateRunning());
         _statesDictionary.Add(States.Paused, new StatePaused());
         _statesDictionary.Add(States.Death, new StateDeath());
+        _statesDictionary.Add(States.EndGame, new StateEndGame());
 
         SwitchState(States.Running);
 
@@ -68,6 +69,9 @@ public class GameManager : Singleton<GameManager>
         enemyCount.value = _enemyCount;
 
         unityEventOnEnemyCountChange.Invoke();
+
+        if (_enemyCount <= 0)
+            menuManager.EndGameMenu();
     }
 }
 
@@ -75,5 +79,6 @@ public enum States
 {
     Running,
     Paused,
-    Death
+    Death,
+    EndGame
 }

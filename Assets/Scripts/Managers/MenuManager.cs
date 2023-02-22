@@ -5,6 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject pauseMenu;
+    public GameObject endGameMenu;
 
     public bool _isMainMenuVisible = false;
     public float _currentTimeScale = 1.0f;
@@ -77,5 +78,14 @@ public class MenuManager : MonoBehaviour
                 GameManager.instance.SwitchState(States.Running);
             }
         }
+    }
+
+    public void EndGameMenu()
+    {
+        endGameMenu.SetActive(true);
+
+        GameManager.instance.SwitchState(States.EndGame);
+
+        
     }
 }

@@ -69,3 +69,22 @@ public class StateDeath: StateBase
         base.OnStateExit();
     }
 }
+
+public class StateEndGame: StateBase
+{
+    public override void OnStateEnter()
+    {
+        message = $"Entering {this.GetType()}";
+
+        base.OnStateEnter();
+
+        Time.timeScale = 0.0f;
+    }
+
+    public override void OnStateExit()
+    {
+        message = $"Leaving {this.GetType()}";
+
+        base.OnStateExit();
+    }
+}
